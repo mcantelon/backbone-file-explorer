@@ -7,11 +7,13 @@
 </head>
 
 <body>
+<div id='explorer'>
 </body>
 
 <script>
 $(document).ready(function() {
-  new FileExplorer();
+  file = new FileExplorer();
+  $('#explorer').html(file.render().el);
 });
 </script>
 </html>
