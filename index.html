@@ -1,9 +1,13 @@
 <html>
 <head>
-   <script src="vendor/underscore.js"></script>
+  <script src="vendor/underscore.js"></script>
   <script src="vendor/jquery.js"></script>
   <script src="vendor/backbone.js"></script>
   <script src="lib/backbone-file-editor.js"></script>
+
+  <style>
+    .level { padding-left: 10px; }
+  </style>
 </head>
 
 <body>
@@ -13,9 +17,11 @@
 <script>
 $(document).ready(function() {
   var dir = new Directory({name: 'main'});
-  var child = dir.addChildDir({name: 'stuff'});
-  var child = child.addChildDir({name: 'goat'});
-  child.addChildDir({name: 'rob'});
+
+  dir.addChildDir({name: 'stuff'})
+     .addChildDir({name: 'goat'})
+     .addChildDir({name: 'rob'});
+
   new FileExplorer({
     el: $('#explorer'),
     directory: dir,
@@ -26,11 +32,11 @@ $(document).ready(function() {
 </script>
 
 <script type="text/template" id='template-dir'>
-  <div stype="padding=:20px;"><%= entries %></div>
+  <div class="dir"><%= entries %></div>
 </script>
 
 <script type="text/template" id='template-dir-entry'>
-  <div><%= padding %><%= name %></div>
+  <div><%= name %></div>
 </script>
 
 </html>
