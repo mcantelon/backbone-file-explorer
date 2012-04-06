@@ -16,7 +16,16 @@ $(document).ready(function() {
   var child = dir.addChildDir({name: 'stuff'});
   var child = child.addChildDir({name: 'goat'});
   child.addChildDir({name: 'rob'});
-  new FileExplorer({el: $('#explorer'), directory: dir});
+  new FileExplorer({
+    el: $('#explorer'),
+    directory: dir,
+    directoryTemplate: $('#template-dir').html()
+  });
 });
 </script>
+
+<script type="text/template" id='template-dir'>
+  <div><%= padding %><%= name %></div>
+</script>
+
 </html>
