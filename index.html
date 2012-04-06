@@ -12,8 +12,7 @@
 
 <script>
 $(document).ready(function() {
-  file = new FileExplorer();
-  $('#explorer').html(file.render().el);
+  var file = new FileExplorer({el: $('#explorer')});
 });
 </script>
 </html>
