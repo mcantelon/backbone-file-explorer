@@ -12,7 +12,11 @@
 
 <script>
 $(document).ready(function() {
-  var file = new FileExplorer({el: $('#explorer')});
+  var dir = new Directory({name: 'main'});
+  var child = dir.addChildDir({name: 'stuff'});
+  var child = child.addChildDir({name: 'goat'});
+  child.addChildDir({name: 'rob'});
+  new FileExplorer({el: $('#explorer'), directory: dir});
 });
 </script>
 </html>
