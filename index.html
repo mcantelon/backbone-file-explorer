@@ -19,12 +19,17 @@ $(document).ready(function() {
   new FileExplorer({
     el: $('#explorer'),
     directory: dir,
-    directoryTemplate: $('#template-dir').html()
+    directoryTemplate: $('#template-dir').html(),
+    entryTemplate: $('#template-dir-entry').html()
   });
 });
 </script>
 
 <script type="text/template" id='template-dir'>
+  <div stype="padding=:20px;"><%= entries %></div>
+</script>
+
+<script type="text/template" id='template-dir-entry'>
   <div><%= padding %><%= name %></div>
 </script>
 
