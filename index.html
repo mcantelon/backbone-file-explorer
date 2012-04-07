@@ -6,6 +6,16 @@
   <script src="lib/backbone-file-editor.js"></script>
 
   <style>
+    .directory {
+      background-image: url('img/folder.gif');
+      background-repeat: no-repeat;
+      padding-left: 18px;
+    }
+
+    .directory_open {
+      background-image: url('img/folderopen.gif');
+    }
+
     .level { padding-left: 10px; }
   </style>
 </head>
@@ -39,7 +49,7 @@ $(document).ready(function() {
 </script>
 
 <script type="text/template" id='template-dir-entry'>
-  <div><%= icon %> <%= name %></div>
+  <div><%= name %></div>
 </script>
 
 </html>
