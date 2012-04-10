@@ -9,11 +9,17 @@
     .directory {
       background-image: url('img/folder.png');
       background-repeat: no-repeat;
-      padding-left: 28px;
     }
 
     .directory_open {
       background-image: url('img/folderopen.png');
+    }
+
+    .directory_icon_button {
+      display: block;
+      float: left;
+      width: 28px;
+      height: 16px;
     }
 
     .level { padding-left: 10px; }
@@ -82,7 +88,10 @@ $(document).ready(function() {
 </script>
 
 <script type="text/template" id='template-dir-entry'>
-  <div><span class="template_dir_entry_name"><%= name %></span></div>
+  <div>
+    <span class="directory_icon_button"></span>
+    <span class="template_dir_entry_name"><%= name %></span>
+  </div>
 </script>
 
 </html>
