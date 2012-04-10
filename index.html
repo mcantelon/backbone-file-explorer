@@ -26,14 +26,17 @@
 
 <script>
 $(document).ready(function() {
-  var dir = new Directory({name: 'main'});
+  var dir = new Directory({
+    name: 'main',
+    parent: 'test'
+  });
 
-  dir.addChildDir({name: 'stuff'})
-     .addChildDir({name: 'goat'})
-     .addChildDir({name: 'rob'});
+  dir.addDir({name: 'stuff'})
+     .addDir({name: 'goat'})
+     .addDir({name: 'rob'});
 
-  dir.addChildDir({name: 'bing'});
-  dir.addChild({name: 'file.png'});
+  dir.addDir({name: 'bing'});
+  dir.addFile({name: 'file.png'});
 
   new FileExplorer({
     el: $('#explorer'),
@@ -49,7 +52,7 @@ $(document).ready(function() {
 </script>
 
 <script type="text/template" id='template-dir-entry'>
-  <div><%= name %></div>
+  <div><span class="template_dir_entry_name"><%= name %></span></div>
 </script>
 
 </html>
