@@ -38,6 +38,36 @@ $(document).ready(function() {
   dir.addDir({name: 'bing'});
   dir.addFile({name: 'file.png'});
 
+  /*
+  // the below JSON representation is equivalent to the above and
+  // could be provided to the FileExplorer object using the
+  // "structure" option
+  var fileStructure = {
+    name: 'main',
+    children: [
+      {
+        name: 'stuff',
+        children: [
+          {
+            name: 'goat',
+            children: [
+              {
+                name: 'rob',
+                children: []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        name: 'bing',
+        children: []
+      },
+      {name: 'file.png'}
+    ]
+  };
+  */
+
   new FileExplorer({
     el: $('#explorer'),
     directory: dir,
