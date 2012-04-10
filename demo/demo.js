@@ -51,7 +51,10 @@ function demo() {
     el:                $('#explorer'),
     directory:         dir,
     levelTemplate: $('#template-dir-level').html(),
-    entryTemplate:     $('#template-dir-entry').html()
+    entryTemplate:     $('#template-dir-entry').html(),
+    nameClickHandler: function(path) {
+      alert('User clicked ' + path);
+    }
   });
 
   // example of how the explorer can be updated
