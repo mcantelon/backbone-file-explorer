@@ -14,4 +14,8 @@
   height: 16px;
 }
 
+.template_dir_entry_actions {
+  float: right;
+}
+
 .level { padding-left: 10px; }

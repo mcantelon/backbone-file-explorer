@@ -53,8 +53,18 @@ function demo() {
     levelTemplate: $('#template-dir-level').html(),
     entryTemplate:     $('#template-dir-entry').html(),
     nameClickHandler: function(result) {
-      alert('User clicked ' + result.type + ' at path ' + result.path);
-    }
+      alert('User clicked name of ' + result.type + ' at path ' + result.path);
+    },
+    actionHandlers: [
+      {
+        name: 'Delete',
+        description: 'Delete file or directory',
+        iconHtml: '<img src="demo/img/trash.jpg"/>',
+        logic: function(result) {
+          alert('User clicked trash icon for ' + result.type + ' at path ' + result.path);
+        }
+      }
+    ]
   });
 
   // example of how the explorer can be updated

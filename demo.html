@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <div id='explorer'></div>
+  <div id='explorer' style='width: 200px'></div>
 
   <p>
     <a id='updateLink' href='#'>Simulate an update via AJAX to delete file.png</a>
@@ -29,9 +29,10 @@ $(document).ready(function() {
 </script>
 
 <script type="text/template" id='template-dir-entry'>
-  <div>
+  <div style='clear:both'>
     <span class="directory_icon_button"></span>
     <span class="template_dir_entry_name"><%= name %></span>
+    <span class="template_dir_entry_actions"></span>
   </div>
 </script>
 
