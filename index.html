@@ -28,8 +28,11 @@
 </head>
 
 <body>
-<div id='explorer'></div>
-<a id='updateLink' href='#'>Update</a>
+  <div id='explorer'></div>
+
+  <p>
+    <a id='updateLink' href='#'>Simulate an update via AJAX</a>
+  </p>
 </body>
 
 <script>
@@ -59,6 +62,7 @@ $(document).ready(function() {
 
   var dirSlightlyAlteredAndInJSON = {
     name: 'main',
+    parent: 'test',
     children: [
       {
         name: 'stuff',
