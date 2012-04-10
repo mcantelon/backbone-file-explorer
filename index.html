@@ -86,10 +86,10 @@ $(document).ready(function() {
   };
 
   var fileExplorer = new FileExplorer({
-    el: $('#explorer'),
-    directory: dir,
-    directoryTemplate: $('#template-dir').html(),
-    entryTemplate: $('#template-dir-entry').html()
+    el:                $('#explorer'),
+    directory:         dir,
+    levelTemplate: $('#template-dir-level').html(),
+    entryTemplate:     $('#template-dir-entry').html()
   });
 
   // example of how the explorer can be updated
@@ -100,7 +100,7 @@ $(document).ready(function() {
 });
 </script>
 
-<script type="text/template" id='template-dir'>
+<script type="text/template" id='template-dir-level'>
   <div class="level"></div>
 </script>
 
