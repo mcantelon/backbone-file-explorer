@@ -1,0 +1,17 @@
+.directory {
+  background-image: url('../img/folder.png');
+  background-repeat: no-repeat;
+}
+
+.directory_open {
+  background-image: url('../img/folderopen.png');
+}
+
+.directory_icon_button {
+  display: block;
+  float: left;
+  width: 28px;
+  height: 16px;
+}
+
+.level { padding-left: 10px; }
