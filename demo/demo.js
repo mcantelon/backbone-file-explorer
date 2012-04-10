@@ -52,8 +52,8 @@ function demo() {
     directory:         dir,
     levelTemplate: $('#template-dir-level').html(),
     entryTemplate:     $('#template-dir-entry').html(),
-    nameClickHandler: function(path) {
-      alert('User clicked ' + path);
+    nameClickHandler: function(result) {
+      alert('User clicked ' + result.type + ' at path ' + result.path);
     }
   });
 
