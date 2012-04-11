@@ -32,16 +32,24 @@
 
 <script>
 $(function() {
+  var startY = {};
+
   function dragHandler(event) {
+    var id = $(this).attr('id');
+    if (startY[id] == undefined) {
+      var offsets = $(this).offset();
+      startY[id] = offsets.top;
+    }
     $(this).css({'z-index': 1});
     var offsets = $(this).offset();
-    $(this).css({top: event.offsetY - offsets.top});
+    $(this).css({top: event.offsetY - startY[id]});
   }
 
   function dropHandler(event) {
-    var droppedId = event.dragTarget.id;
+    var droppedId   = event.dragTarget.id;
     var containerId = event.dropTarget.id;
     console.log('Dropped ID ' + droppedId + ' onto ' + containerId);
+    $('#' + droppedId).css({top: 0});
   }
 
   $('.box').bind('drag', dragHandler);
