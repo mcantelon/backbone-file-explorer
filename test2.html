@@ -7,22 +7,17 @@
 
   <style>
     .box {
-      z-index: 1;
       position: relative;
       width: 100px;
       height: 100px;
+    }
+    #box {
       background-color: red;
     }
-    .dest {
-      position: relative;
-      width: 100px;
-      height: 100px;
+    #dest {
       background-color: green;
     }
-    .dest2 {
-      position: relative;
-      width: 100px;
-      height: 100px;
+    #dest2 {
       background-color: blue;
     }
   </style>
@@ -30,28 +25,27 @@
 <body>
 
 <div class="test">
-<div id="boxId" class="box ui-widget-content">A</div>
-
-<div id="destId" class="dest ui-widget-content">A</div>
-
-<div id="destId2" class="dest2 ui-widget-content">A</div>
+<div id="box" class="box ui-widget-content">A</div>
+<div id="dest" class="box ui-widget-content">A</div>
+<div id="dest2" class="box ui-widget-content">A</div>
 </div>
 
 <script>
 $(function() {
-  $('.box').bind('drag', function(event) {
-    $(this).css({top:event.offsetY});
-  });
-  $('.dest').bind('drop', function(event) {
+  function dragHandler(event) {
+    $(this).css({'z-index': 1});
+    var offsets = $(this).offset();
+    $(this).css({top: event.offsetY - offsets.top});
+  }
+
+  function dropHandler(event) {
     var droppedId = event.dragTarget.id;
     var containerId = event.dropTarget.id;
     console.log('Dropped ID ' + droppedId + ' onto ' + containerId);
-  });
-  $('.dest2').bind('drop', function(event) {
-    var droppedId = event.dragTarget.id;
-    var containerId = event.dropTarget.id;
-    console.log('Dropped ID ' + droppedId + ' onto ' + containerId);
-  });
+  }
+
+  $('.box').bind('drag', dragHandler);
+  $('.box').bind('drop', dropHandler);
 });
 </script>
 
