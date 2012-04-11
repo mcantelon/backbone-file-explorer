@@ -1,0 +1,58 @@
+<html>
+<head>
+  <script src='http://192.168.1.103/media/vendor/jquery.js'></script>
+<!--  <script src='http://192.168.1.103/media/vendor/jquery-ui/jquery-ui.js'></script> -->
+  <script src='stuff/jquery.event.drag-1.5.js'></script>
+  <script src='stuff/jquery.event.drop-1.1.js'></script>
+
+  <style>
+    .box {
+      z-index: 1;
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+    .dest {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: green;
+    }
+    .dest2 {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+
+<div class="test">
+<div id="boxId" class="box ui-widget-content">A</div>
+
+<div id="destId" class="dest ui-widget-content">A</div>
+
+<div id="destId2" class="dest2 ui-widget-content">A</div>
+</div>
+
+<script>
+$(function() {
+  $('.box').bind('drag', function(event) {
+    $(this).css({top:event.offsetY});
+  });
+  $('.dest').bind('drop', function(event) {
+    var droppedId = event.dragTarget.id;
+    var containerId = event.dropTarget.id;
+    console.log('Dropped ID ' + droppedId + ' onto ' + containerId);
+  });
+  $('.dest2').bind('drop', function(event) {
+    var droppedId = event.dragTarget.id;
+    var containerId = event.dropTarget.id;
+    console.log('Dropped ID ' + droppedId + ' onto ' + containerId);
+  });
+});
+</script>
+
+</body>
