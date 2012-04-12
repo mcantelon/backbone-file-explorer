@@ -1,0 +1,26 @@
+<html>
+<head>
+  <script src='http://192.168.1.103/media/vendor/jquery.js'></script>
+  <script src='http://192.168.1.103/media/vendor/jquery-ui/jquery-ui.js'></script>
+
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div class="test">
+<div class="box ui-widget-content">A</div>
+</div>
+
+<script>
+$(function() {
+  $('.box').draggable();
+});
+</script>
+
+</body>
