@@ -48,7 +48,9 @@ $(function() {
   function dropHandler(event) {
     var droppedId   = event.dragTarget.id;
     var containerId = event.dropTarget.id;
-    console.log('Dropped ID ' + droppedId + ' onto ' + containerId);
+    if (droppedId != containerId) {
+      console.log('Dropped ID ' + droppedId + ' onto ' + containerId);
+    }
     $('#' + droppedId).css({top: 0});
   }
 
