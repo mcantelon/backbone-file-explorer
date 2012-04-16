@@ -107,4 +107,6 @@ function demo() {
       $('#message').text('');
     }, 1000);
   });
+
+  return fileExplorer;
 }

@@ -25,7 +25,7 @@
 
 <script>
 $(document).ready(function() {
-  demo();
+  var fileExplorer = demo();
 
   // add drag-and-drop functionality
   startY = {};
@@ -45,7 +45,14 @@ $(document).ready(function() {
     var droppedId   = event.dragTarget.id;
     var containerId = event.dropTarget.id;
     if (droppedId != containerId) {
-      alert('Dropped ID ' + droppedId + ' onto ' + containerId);
+      fileExplorer.busy();
+      $('#message').text(
+        'Dropped ID ' + droppedId + ' onto ' + containerId
+      );
+      setTimeout(function() {
+        fileExplorer.idle();
+        $('#message').text('');
+      }, 2000);
     }
     $('#' + droppedId).css({top: 0});
   }
