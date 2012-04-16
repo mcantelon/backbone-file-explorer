@@ -53,7 +53,14 @@ function demo() {
     levelTemplate: $('#template-dir-level').html(),
     entryTemplate:     $('#template-dir-entry').html(),
     nameClickHandler: function(result) {
-      alert('User clicked name of ' + result.type + ' at path ' + result.path);
+      fileExplorer.busy();
+      $('#message').text(
+        'User clicked name of ' + result.type + ' at path ' + result.path
+      );
+      setTimeout(function() {
+        $('#message').text('');
+        fileExplorer.idle();
+      }, 2000);
     },
     actionHandlers: [
       {
@@ -61,7 +68,14 @@ function demo() {
         description: 'Delete file or directory',
         iconHtml: '<img src="demo/img/trash.jpg"/>',
         logic: function(result) {
-          alert('User clicked trash icon for ' + result.type + ' at path ' + result.path);
+          fileExplorer.busy();
+          $('#message').text(
+            'User clicked trash icon for ' + result.type + ' at path ' + result.path
+          );
+          setTimeout(function() {
+            fileExplorer.idle();
+            $('#message').text('');
+          }, 2000);
         }
       }
     ]
@@ -69,7 +83,13 @@ function demo() {
 
   // example of how the explorer can be updated
   $('#updateLink').click(function() {
-    fileExplorer.structure = dirSlightlyAlteredAndInJSON;
-    fileExplorer.render();
+    fileExplorer.busy();
+    $('#message').text('User clicked upload link.');
+    setTimeout(function() {
+      fileExplorer.structure = dirSlightlyAlteredAndInJSON;
+      fileExplorer.render();
+      fileExplorer.idle();
+      $('#message').text('');
+    }, 1000);
   });
 }
