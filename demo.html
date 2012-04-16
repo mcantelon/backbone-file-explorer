@@ -4,6 +4,8 @@
   <script src="vendor/underscore.js"></script>
   <script src="vendor/jquery.js"></script>
   <script src="vendor/backbone.js"></script>
+  <script src="stuff/jquery.event.drag-1.5.js"></script>
+  <script src="stuff/jquery.event.drop-1.1.js"></script>
   <script src="lib/backbone-file-editor.js"></script>
   <script src="demo/demo.js"></script>
 
@@ -21,6 +23,32 @@
 <script>
 $(document).ready(function() {
   demo();
+
+  // add drag-and-drop functionality
+  startY = {};
+
+  function dragHandler(event) {
+    var id = $(this).attr('id');
+    if (startY[id] == undefined) {
+      var offsets = $(this).offset();
+      startY[id] = offsets.top;
+    }
+    $(this).css({'z-index': 1});
+    var offsets = $(this).offset();
+    $(this).css({top: event.offsetY - startY[id]});
+  }
+
+  function dropHandler(event) {
+    var droppedId   = event.dragTarget.id;
+    var containerId = event.dropTarget.id;
+    if (droppedId != containerId) {
+      alert('Dropped ID ' + droppedId + ' onto ' + containerId);
+    }
+    $('#' + droppedId).css({top: 0});
+  }
+
+  $('.directory').bind('drag', dragHandler);
+  $('.directory').bind('drop', dropHandler);
 });
 </script>
 
