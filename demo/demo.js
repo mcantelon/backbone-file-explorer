@@ -64,9 +64,24 @@ function demo() {
     },
     actionHandlers: [
       {
+        name: 'Archive',
+        description: 'Archive file or directory',
+        iconHtml: '<img src="demo/img/icon_archive.gif" alt="Archive" title="Archive" />',
+        logic: function(result) {
+          fileExplorer.busy();
+          $('#message').text(
+            'User clicked archive icon for ' + result.type + ' at path ' + result.path
+          );
+          setTimeout(function() {
+            fileExplorer.idle();
+            $('#message').text('');
+          }, 2000);
+        }
+      },
+      {
         name: 'Delete',
         description: 'Delete file or directory',
-        iconHtml: '<img src="demo/img/trash.jpg"/>',
+        iconHtml: '<img src="demo/img/trash.jpg" alt="Delete" title="Delete" />',
         logic: function(result) {
           fileExplorer.busy();
           $('#message').text(
