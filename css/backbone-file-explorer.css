@@ -1,4 +1,5 @@
 .directory {
+  position: relative;
   background-image: url('../img/folder.png');
   background-repeat: no-repeat;
 }
