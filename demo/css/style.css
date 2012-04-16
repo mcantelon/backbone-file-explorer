@@ -1,0 +1,10 @@
+body {
+  font-family: Ariel,Sans-Serif;
+  font-size: .8em;
+}
+
+#message {
+  background-color: #ff8;
+  height: 60px;
+  width: 200px;
+}
