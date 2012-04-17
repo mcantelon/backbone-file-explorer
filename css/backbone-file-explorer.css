@@ -4,7 +4,7 @@
   background-position: right top;
 }
 
-.directory {
+.backbone-file-explorer-directory {
   position: relative;
   background-image: url('../img/folder.png');
   background-repeat: no-repeat;
