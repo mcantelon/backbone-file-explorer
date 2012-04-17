@@ -57,8 +57,8 @@ $(document).ready(function() {
     $('#' + droppedId).css({top: 0});
   }
 
-  $('.directory').bind('drag', dragHandler);
-  $('.directory').bind('drop', dropHandler);
+  $('.directory:not(:first)').bind('drag', dragHandler);
+  $('.directory:not(:first)').bind('drop', dropHandler);
 });
 </script>
 
