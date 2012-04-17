@@ -24,45 +24,47 @@
 </body>
 
 <script>
+function dragHandler(event) {
+  var id = $(this).attr('id');
+  if (startY[id] == undefined) {
+    var offsets = $(this).offset();
+    startY[id] = offsets.top;
+  }
+  $(this).css({'z-index': 1});
+  var offsets = $(this).offset();
+  $(this).css({top: event.offsetY - startY[id]});
+}
+
+function dropHandler(event) {
+  var droppedId   = event.dragTarget.id;
+  var containerId = event.dropTarget.id;
+  if (droppedId != containerId) {
+    var droppedPath = fileExplorer.idPaths[droppedId];
+    var containerPath = fileExplorer.idPaths[containerId];
+    var moveAllowed = containerPath.indexOf(droppedPath) != 0;
+    if (moveAllowed) {
+      fileExplorer.busy();
+      $('#message').text(
+        'Dropped ID ' + droppedPath + ' onto ' + containerPath
+      );
+      setTimeout(function() {
+        fileExplorer.idle();
+        $('#message').text('');
+      }, 2000);
+    } else {
+      alert("You can't move a directory into its subdirectory.");
+    }
+  }
+  $('#' + droppedId).css({top: 0});
+}
+
+var fileExplorer;
+
 $(document).ready(function() {
-  var fileExplorer = demo();
+  fileExplorer = demo();
 
   // add drag-and-drop functionality
   startY = {};
-
-  function dragHandler(event) {
-    var id = $(this).attr('id');
-    if (startY[id] == undefined) {
-      var offsets = $(this).offset();
-      startY[id] = offsets.top;
-    }
-    $(this).css({'z-index': 1});
-    var offsets = $(this).offset();
-    $(this).css({top: event.offsetY - startY[id]});
-  }
-
-  function dropHandler(event) {
-    var droppedId   = event.dragTarget.id;
-    var containerId = event.dropTarget.id;
-    if (droppedId != containerId) {
-      var droppedPath = fileExplorer.idPaths[droppedId];
-      var containerPath = fileExplorer.idPaths[containerId];
-      var moveAllowed = containerPath.indexOf(droppedPath) != 0;
-      if (moveAllowed) {
-        fileExplorer.busy();
-        $('#message').text(
-          'Dropped ID ' + droppedPath + ' onto ' + containerPath
-        );
-        setTimeout(function() {
-          fileExplorer.idle();
-          $('#message').text('');
-        }, 2000);
-      } else {
-        alert("You can't move a directory into its subdirectory.");
-      }
-    }
-    $('#' + droppedId).css({top: 0});
-  }
 
   $('.directory:not(:first)').bind('drag', dragHandler);
   $('.directory:not(:first)').bind('drop', dropHandler);
