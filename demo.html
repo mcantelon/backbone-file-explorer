@@ -45,16 +45,21 @@ $(document).ready(function() {
     var droppedId   = event.dragTarget.id;
     var containerId = event.dropTarget.id;
     if (droppedId != containerId) {
-      fileExplorer.busy();
       var droppedPath = fileExplorer.idPaths[droppedId];
       var containerPath = fileExplorer.idPaths[containerId];
-      $('#message').text(
-        'Dropped ID ' + droppedPath + ' onto ' + containerPath
-      );
-      setTimeout(function() {
-        fileExplorer.idle();
-        $('#message').text('');
-      }, 2000);
+      var moveAllowed = containerPath.indexOf(droppedPath) != 0;
+      if (moveAllowed) {
+        fileExplorer.busy();
+        $('#message').text(
+          'Dropped ID ' + droppedPath + ' onto ' + containerPath
+        );
+        setTimeout(function() {
+          fileExplorer.idle();
+          $('#message').text('');
+        }, 2000);
+      } else {
+        alert("You can't move a directory into its subdirectory.");
+      }
     }
     $('#' + droppedId).css({top: 0});
   }
