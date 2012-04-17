@@ -14,7 +14,7 @@
   background-image: url('../img/folderopen.png');
 }
 
-.directory_icon_button {
+.backbone-file-explorer-directory_icon_button {
   display: block;
   float: left;
   width: 28px;
@@ -25,4 +25,4 @@
   float: right;
 }
 
-.level { padding-left: 10px; }
+.backbone-file-explorer-level { padding-left: 10px; }
