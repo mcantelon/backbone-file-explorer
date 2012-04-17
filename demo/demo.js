@@ -106,8 +106,8 @@ function demo() {
       fileExplorer.render();
 
       // re-bind drag-and-drop behavior
-      $('.directory:not(:first)').bind('drag', dragHandler);
-      $('.directory:not(:first)').bind('drop', dropHandler);
+      $('.backbone-file-explorer-directory:not(:first)').bind('drag', dragHandler);
+      $('.backbone-file-explorer-directory:not(:first)').bind('drop', dropHandler);
 
       fileExplorer.idle();
       $('#message').text('');
