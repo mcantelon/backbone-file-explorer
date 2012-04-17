@@ -46,8 +46,10 @@ $(document).ready(function() {
     var containerId = event.dropTarget.id;
     if (droppedId != containerId) {
       fileExplorer.busy();
+      var droppedPath = fileExplorer.idPaths[droppedId];
+      var containerPath = fileExplorer.idPaths[containerId];
       $('#message').text(
-        'Dropped ID ' + droppedId + ' onto ' + containerId
+        'Dropped ID ' + droppedPath + ' onto ' + containerPath
       );
       setTimeout(function() {
         fileExplorer.idle();
