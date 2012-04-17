@@ -58,14 +58,13 @@ function dropHandler(event) {
   $('#' + droppedId).css({top: 0});
 }
 
-var fileExplorer;
+var fileExplorer
+  , startY = {};
 
 $(document).ready(function() {
   fileExplorer = demo();
 
   // add drag-and-drop functionality
-  startY = {};
-
   $('.directory:not(:first)').bind('drag', dragHandler);
   $('.directory:not(:first)').bind('drop', dropHandler);
 });
