@@ -50,7 +50,7 @@ function demo() {
   var fileExplorer = new FileExplorer({
     el:                $('#explorer'),
     directory:         dir,
-    levelTemplate: $('#template-dir-level').html(),
+    levelTemplate:     $('#template-dir-level').html(),
     entryTemplate:     $('#template-dir-entry').html(),
     nameClickHandler: function(result) {
       fileExplorer.busy();
