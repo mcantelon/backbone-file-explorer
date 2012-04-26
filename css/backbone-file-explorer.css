@@ -5,10 +5,12 @@
 }
 
 .backbone-file-explorer-busy {
+  height: 20px;
   background-image: url('../img/ajax-loader.gif')
 }
 
 .backbone-file-explorer-idle {
+  height: '';
   background-image: url('')
 }
 
