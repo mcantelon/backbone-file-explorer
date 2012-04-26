@@ -3,7 +3,7 @@
   height: 20px;
   background-repeat: no-repeat;
   background-position: right top;
-
+}
 
 .backbone-file-explorer-busy {
   background-image: url('../img/ajax-loader.gif')
