@@ -10,7 +10,7 @@
 }
 
 .backbone-file-explorer-idle {
-  height: '';
+  height: auto;
   background-image: url('')
 }
 
