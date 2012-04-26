@@ -52,7 +52,7 @@ function demo() {
     directory:         dir,
     levelTemplate:     $('#template-dir-level').html(),
     entryTemplate:     $('#template-dir-entry').html(),
-    closeDirsByDefault: true,
+    closeDirsByDefault: false,
     nameClickHandler: function(result) {
       fileExplorer.busy();
       $('#message').text(

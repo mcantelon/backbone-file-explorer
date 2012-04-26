@@ -18,6 +18,10 @@
   background-image: url('')
 }
 
+.backbone-file-explorer-entry-odd {
+  background-color: #eee;
+}
+
 .backbone-file-explorer-directory {
   position: relative;
   background-image: url('../img/folder.png');
