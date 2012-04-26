@@ -4,6 +4,14 @@
   background-position: right top;
 }
 
+.backbone-file-explorer-busy {
+  background-image: url('../img/ajax-loader.gif')
+}
+
+.backbone-file-explorer-idle {
+  background-image: url('')
+}
+
 .backbone-file-explorer-directory {
   position: relative;
   background-image: url('../img/folder.png');
