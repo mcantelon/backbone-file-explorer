@@ -25,14 +25,16 @@
 
 <script>
 function dragHandler(event) {
-  var id = $(this).attr('id');
+  var id = event.currentTarget.id
+    , $el = $('#' + event.currentTarget.id)
+    , offsets = $el.offset();
+
   if (startY[id] == undefined) {
-    var offsets = $(this).offset();
     startY[id] = offsets.top;
   }
-  $(this).css({'z-index': 1});
-  var offsets = $(this).offset();
-  $(this).css({top: event.offsetY - startY[id]});
+
+  $el.css({'z-index': 1});
+  $el.css({top: event.offsetY - startY[id]});
 }
 
 function dropHandler(event) {
