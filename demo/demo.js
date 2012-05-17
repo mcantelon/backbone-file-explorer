@@ -63,6 +63,20 @@ function demo() {
         fileExplorer.idle();
       }, 2000);
     },
+    moveHandler: function(move) {
+      if (move.allowed) {
+        move.self.busy();
+        $('#message').text(
+          'Dropped ID ' + move.droppedPath + ' onto ' + move.containerPath
+        );
+        setTimeout(function() {
+          move.self.idle();
+          $('#message').text('');
+        }, 2000);
+      } else {
+        alert("You can't move a directory into its subdirectory.");
+      }
+    },
     actionHandlers: [
       {
         name: 'Archive',
