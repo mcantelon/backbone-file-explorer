@@ -3,3 +3,5 @@ In early development...
 The idea is to make a very lightweight Backbone-based JavaScript file
 explorer. It is to be used with server-side scripts that will relay
 the server directory structure as JSON.
+
+Each file explorer container must have a CSS ID.
