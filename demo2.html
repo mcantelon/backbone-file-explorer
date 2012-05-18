@@ -7,20 +7,20 @@
   <script src="stuff/jquery.event.drag-1.5.js"></script>
   <script src="stuff/jquery.event.drop-1.1.js"></script>
   <script src="lib/backbone-file-editor.js"></script>
-  <script src="demo/demo.js"></script>
+  <script src="demo/demo2.js"></script>
 
   <link type="text/css" rel="stylesheet" media="all" href="css/backbone-file-explorer.css" />
   <link type="text/css" rel="stylesheet" media="all" href="demo/css/style.css" />
 </head>
 
 <body>
-  <div id='explorer' class='backbone-file-explorer'>Loading...</div>
+  <div>
+    <div id='source' class='backbone-file-explorer' style='float:left'>Loading...</div>
 
-  <p>
-    <a id='updateLink' href='#'>Simulate an update via AJAX to delete file.png</a>
-  </p>
+    <div id='dest' class='backbone-file-explorer' style='float:left'>Loading...</div>
+  </div>
 
-  <div id='message'></div>
+  <div id='message' style='clear:both'></div>
 </body>
 
 <script>
@@ -29,7 +29,8 @@ var fileExplorer
   , startY = {};
 
 $(document).ready(function() {
-  fileExplorer = demo();
+  source = source();
+  destination = dest();
 });
 </script>
 
