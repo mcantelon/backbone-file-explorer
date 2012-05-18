@@ -1,6 +1,6 @@
 function testDirs() {
 
-  var dir = new Directory({
+  var dir = new fileBrowser.Directory({
     name: 'main',
     parent: 'test'
   });
@@ -19,7 +19,7 @@ function source() {
 
   var dir = testDirs();
 
-  var fileExplorer = new FileExplorer({
+  var fileExplorer = new fileBrowser.FileExplorer({
     el:                $('#source'),
     directory:         dir,
     levelTemplate:     $('#template-dir-level').html(),
@@ -48,7 +48,7 @@ function dest() {
 
   var dir = testDirs();
 
-  var fileExplorer = new FileExplorer({
+  var fileExplorer = new fileBrowser.FileExplorer({
     el:                $('#dest'),
     directory:         dir,
     levelTemplate:     $('#template-dir-level').html(),

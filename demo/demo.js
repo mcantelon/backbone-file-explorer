@@ -1,5 +1,5 @@
 function demo() {
-  var dir = new Directory({
+  var dir = new fileBrowser.Directory({
     name: 'main',
     parent: 'test'
   });
@@ -47,7 +47,7 @@ function demo() {
     ]
   };
 
-  var fileExplorer = new FileExplorer({
+  var fileExplorer = new fileBrowser.FileExplorer({
     el:                $('#explorer'),
     directory:         dir,
     levelTemplate:     $('#template-dir-level').html(),
