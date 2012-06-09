@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="vendor/underscore.js"></script>
+  <script src="vendor/jquery.js"></script>
+  <script src="vendor/backbone.js"></script>
+  <script src="stuff/jquery.event.drag-1.5.js"></script>
+  <script src="stuff/jquery.event.drop-1.1.js"></script>
+  <script src="lib/backbone-file-browser.js"></script>
+  <script src="demo/demo3.js"></script>
+
+  <link type="text/css" rel="stylesheet" media="all" href="css/backbone-file-explorer.css" />
+  <link type="text/css" rel="stylesheet" media="all" href="demo/css/style.css" />
+</head>
+
+<body>
+  <div>
+    <div id='source' class='backbone-file-explorer' style='float:left'>Loading...</div>
+
+    <div id='dest' class='backbone-file-explorer' style='float:left'>Loading...</div>
+  </div>
+
+  <div id='message' style='clear:both'></div>
+</body>
+
+<script>
+var source
+  , destination;
+
+$(document).ready(function() {
+  source = source();
+  destination = dest();
+});
+</script>
+
+<script type="text/template" id='template-dir-level'>
+  <div class="backbone-file-explorer-level"></div>
+</script>
+
+<script type="text/template" id='template-dir-entry'>
+  <div class='backbone-file-explorer-entry' style='clear:both'>
+    <span class="backbone-file-explorer-directory_icon_button"></span>
+    <span class="backbone-file-explorer-directory_entry_name"><%= name %></span>
+    <span class="backbone-file-explorer-directory_entry_actions"></span>
+  </div>
+</script>
+
+</html>
