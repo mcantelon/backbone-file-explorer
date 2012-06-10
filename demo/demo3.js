@@ -53,7 +53,7 @@ function dest() {
     directory:         dir,
     levelTemplate:     $('#template-dir-level').html(),
     entryTemplate:     $('#template-dir-entry').html(),
-    closeDirsByDefault: false,
+    closeDirsByDefault: true,
     moveHandler: function(move) {
       if (move.allowed) {
         move.self.busy();
