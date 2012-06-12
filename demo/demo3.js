@@ -15,6 +15,21 @@ function testDirs() {
   return dir;
 }
 
+function moveHandler(move) {
+  if (move.allowed) {
+    move.self.busy();
+    $('#message').text(
+      'Dropped ID ' + move.droppedPath + ' onto ' + move.containerPath
+    );
+    setTimeout(function() {
+      move.self.idle();
+      $('#message').text('');
+    }, 2000);
+  } else {
+    alert("You can't move a directory into its subdirectory.");
+  }
+}
+
 function source() {
 
   var dir = testDirs();
@@ -25,20 +40,7 @@ function source() {
     levelTemplate:     $('#template-dir-level').html(),
     entryTemplate:     $('#template-dir-entry').html(),
     closeDirsByDefault: true,
-    moveHandler: function(move) {
-      if (move.allowed) {
-        move.self.busy();
-        $('#message').text(
-          'Dropped ID ' + move.droppedPath + ' onto ' + move.containerPath
-        );
-        setTimeout(function() {
-          move.self.idle();
-          $('#message').text('');
-        }, 2000);
-      } else {
-        alert("You can't move a directory into its subdirectory.");
-      }
-    },
+    moveHandler: moveHandler
   });
 
   return fileExplorer;
@@ -54,20 +56,7 @@ function dest() {
     levelTemplate:     $('#template-dir-level').html(),
     entryTemplate:     $('#template-dir-entry').html(),
     closeDirsByDefault: true,
-    moveHandler: function(move) {
-      if (move.allowed) {
-        move.self.busy();
-        $('#message').text(
-          'Dropped ID ' + move.droppedPath + ' onto ' + move.containerPath
-        );
-        setTimeout(function() {
-          move.self.idle();
-          $('#message').text('');
-        }, 2000);
-      } else {
-        alert("You can't move a directory into its subdirectory.");
-      }
-    },
+    moveHandler: moveHandler
   });
 
   return fileExplorer;
