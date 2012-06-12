@@ -16,17 +16,22 @@ function testDirs() {
 }
 
 function moveHandler(move) {
-  if (move.allowed) {
-    move.self.busy();
-    $('#message').text(
-      'Dropped ID ' + move.droppedPath + ' onto ' + move.containerPath
-    );
-    setTimeout(function() {
-      move.self.idle();
-      $('#message').text('');
-    }, 2000);
+  // only allow files to be dropped onto the #dest instance
+  if (move.self.id == 'dest') {
+    if (move.allowed) {
+      move.self.busy();
+      $('#message').text(
+        'Dropped ID ' + move.droppedPath + ' onto ' + move.containerPath
+      );
+      setTimeout(function() {
+        move.self.idle();
+        $('#message').text('');
+      }, 2000);
+    } else {
+      alert("You can't move a directory into its subdirectory.");
+    }
   } else {
-    alert("You can't move a directory into its subdirectory.");
+    alert("You're only allowed to drop into the rightmost file explorer.");
   }
 }
 
