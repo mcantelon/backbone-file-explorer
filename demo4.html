@@ -35,20 +35,10 @@ $(document).ready(function() {
   var selectedEntryId;
 
   fileExplorer = demo();
-  $('#explorer').find('.backbone-file-explorer-entry').click(function() {
-    // take note of selected entry
-    selectedEntryId = $(this).attr('id');
-
-    // remove highlighting of existing entries
-    $('#explorer').find('.backbone-file-explorer-entry').css('border', '');
-
-    // highlight selected entry
-    $(this).css('border', '1px solid blue');
-  });
 
   $('#explorer_delete_button').click(function() {
-    var path = fileExplorer.getPathForCssId(selectedEntryId)
-      , type = fileExplorer.getTypeForCssId(selectedEntryId);
+    var path = fileExplorer.getPathForCssId(fileExplorer.selectedEntryId)
+      , type = fileExplorer.getTypeForCssId(fileExplorer.selectedEntryId);
 
     fileExplorer.busy();
     $('#message').text(
