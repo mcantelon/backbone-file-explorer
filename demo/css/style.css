@@ -8,3 +8,11 @@ body {
   height: 60px;
   width: 200px;
 }
+
+#explorer_controls {
+  margin-top: 5px;
+}
+
+.explorer_button {
+  background-color: red;
+}

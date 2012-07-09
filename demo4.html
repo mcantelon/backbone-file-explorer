@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="vendor/underscore.js"></script>
+  <script src="vendor/jquery.js"></script>
+  <script src="vendor/backbone.js"></script>
+  <script src="stuff/jquery.event.drag-1.5.js"></script>
+  <script src="stuff/jquery.event.drop-1.1.js"></script>
+  <script src="lib/backbone-file-browser.js"></script>
+  <script src="demo/demo4.js"></script>
+
+  <link type="text/css" rel="stylesheet" media="all" href="css/backbone-file-explorer.css" />
+  <link type="text/css" rel="stylesheet" media="all" href="demo/css/style.css" />
+</head>
+
+<body>
+  <h3>Example of being able to select entries then doing something to them... click an entry then click 'Delete'.</h3>
+
+  <div id='explorer' class='backbone-file-explorer'>Loading...</div>
+  <div id='explorer_controls'>
+    <span id='explorer_delete_button' class='explorer_button'>Delete</span>
+  </div>
+
+  <p>
+    <a id='updateLink' href='#'>Simulate an update via AJAX to delete file.png</a>
+  </p>
+
+  <div id='message'></div>
+</body>
+
+<script>
+var fileExplorer;
+
+$(document).ready(function() {
+  var selectedEntryId;
+
+  fileExplorer = demo();
+  $('#explorer').find('.backbone-file-explorer-entry').click(function() {
+    // take note of selected entry
+    selectedEntryId = $(this).attr('id');
+
+    // remove highlighting of existing entries
+    $('#explorer').find('.backbone-file-explorer-entry').css('border', '');
+
+    // highlight selected entry
+    $(this).css('border', '1px solid blue');
+  });
+
+  $('#explorer_delete_button').click(function() {
+    var path = fileExplorer.getPathForCssId(selectedEntryId)
+      , type = fileExplorer.getTypeForCssId(selectedEntryId);
+
+    fileExplorer.busy();
+    $('#message').text(
+      'User clicked delete on ' + type + ' for path ' + path
+    );
+    setTimeout(function() {
+      fileExplorer.idle();
+      $('#message').text('');
+    }, 2000);
+  });
+});
+</script>
+
+<script type="text/template" id='template-dir-level'>
+  <div class="backbone-file-explorer-level"></div>
+</script>
+
+<script type="text/template" id='template-dir-entry'>
+  <div class='backbone-file-explorer-entry' style='clear:both'>
+    <span class="backbone-file-explorer-directory_icon_button"></span>
+    <span class="backbone-file-explorer-directory_entry_name"><%= name %></span>
+    <span class="backbone-file-explorer-directory_entry_actions"></span>
+  </div>
+</script>
+
+</html>
